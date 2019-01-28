@@ -1,6 +1,6 @@
 <?php
 
-namespace testPackage;
+namespace felipemouradev\SlackNotification;
 
 class SlackNotificationSdk {
     public function pack() {
