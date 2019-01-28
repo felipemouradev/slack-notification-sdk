@@ -1,0 +1,15 @@
+{
+    "name": "felipemouradev/slack-notification-sdk",
+    "description": "Slack Notification SDK",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Felipe Moura",
+            "email": "felipemouracv@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
+    }
+}
