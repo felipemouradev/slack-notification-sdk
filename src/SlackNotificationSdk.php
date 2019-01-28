@@ -14,12 +14,11 @@ class SlackNotificationSdk
     public static function notify($notificationIdOrSlug, $variables)
     {
         try {
-            $data = self::getClient()->request('POST', "notification/" . $notificationIdOrSlug . "/send", [
+            self::getClient()->request('POST', "notification/" . $notificationIdOrSlug . "/send", [
                 'json' => $variables
             ]);
-            echo $data->getStatusCode();
         } catch (\Exception $exception) {
-            echo $exception->getMessage();
+//            throw $exception;
         }
     }
 }
