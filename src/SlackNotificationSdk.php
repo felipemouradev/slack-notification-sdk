@@ -6,20 +6,20 @@ use GuzzleHttp\Client;
 
 class SlackNotificationSdk
 {
-    private $client = null;
-
-    function __construct()
+    private static function getClient()
     {
-        $this->client = new Client(['base_uri' => getenv('ENDPOINT_SLACK_NOTIFICATION')]);
+        return new Client(['base_uri' => getenv('ENDPOINT_SLACK_NOTIFICATION')]);
     }
 
-    public function notify($notificationIdOrSlug, $variables)
+    public static function notify($notificationIdOrSlug, $variables)
     {
         try {
-            $this->client->request('POST', "notification/" . $notificationIdOrSlug . "/send", [
+            $data = self::getClient()->request('POST', "notification/" . $notificationIdOrSlug . "/send", [
                 'json' => $variables
             ]);
+            echo $data->getStatusCode();
         } catch (\Exception $exception) {
+            echo $exception->getMessage();
         }
     }
 }
